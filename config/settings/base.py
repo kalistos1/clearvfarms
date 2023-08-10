@@ -56,6 +56,7 @@ TENANT_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'pages',
     'accounts',
     'crop_management',
@@ -98,6 +99,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'clearvfarms.urls'
+PUBLIC_SCHEMA_URLCONF = 'clearvfarms.urls_public'
 
 TEMPLATES = [
     {
@@ -163,3 +165,4 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SHOW_PUBLIC_IF_NO_TENANT_FOUND = True
