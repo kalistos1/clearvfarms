@@ -28,7 +28,28 @@ SECRET_KEY = 'django-insecure-a_xzkq$4d6&3wrg)w0wqiia@s30-#54gfbbri*r9majmup0cya
 
 # Application definition
 
-INSTALLED_APPS = [
+SHARED_APPS = [
+    'django_tenants',  # mandatory
+    'client',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'pages',
+    'core',
+    'accounts',
+    'subscription',
+    'loan',
+    'market_price',
+    'certification',
+    'farm_advisory',
+    'weather',
+]
+
+TENANT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,11 +57,37 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
-    'core',
     'accounts',
+    'crop_management',
+    'farm_equipment',
+    'farm_labor',
+    'soil_health',
+    'report',
+    'pest_disease_id',
+    'remote_equipment',
+    'precision_planting',
+    'finance_managment',
+    'farm_table',
+    'insurance',
+    'notifications',
+    'livestock_managment',
+    
+
+
+
+   
 ]
 
+
+INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
+
+TENANT_MODEL = "client.Client" # app.Model
+
+TENANT_DOMAIN_MODEL = "client.Domain"  # app.Model
+
 MIDDLEWARE = [
+    # middleware for tenancy
+    'django_tenants.middleware.main.TenantMainMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -115,3 +162,4 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

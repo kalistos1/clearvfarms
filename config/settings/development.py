@@ -14,10 +14,14 @@ ALLOWED_HOSTS = []
 #     }
 # }
 
+# routers for tenancy
+DATABASE_ROUTERS = (
+    'django_tenants.routers.TenantSyncRouter',
+)
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django_tenants.postgresql_backend',
         'NAME': 'clearvfarms',
         'USER': 'postgres',
         'PASSWORD': 'kal15t05',
