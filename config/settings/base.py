@@ -27,7 +27,6 @@ SECRET_KEY = 'django-insecure-a_xzkq$4d6&3wrg)w0wqiia@s30-#54gfbbri*r9majmup0cya
 
 
 # Application definition
-
 SHARED_APPS = [
     'django_tenants',  # mandatory
     'client',
@@ -37,17 +36,10 @@ SHARED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'pages',
     'core',
-    'accounts',
-    'subscription',
-    'loan',
-    'market_price',
-    'certification',
-    'farm_advisory',
-    'weather',
+    'pages',
 ]
+
 
 TENANT_APPS = [
     'django.contrib.admin',
@@ -56,29 +48,7 @@ TENANT_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'pages',
-    'accounts',
-    'crop_management',
-    'farm_equipment',
-    'farm_labor',
-    'soil_health',
-    'report',
-    'pest_disease_id',
-    'remote_equipment',
-    'precision_planting',
-    'finance_managment',
-    'farm_table',
-    'insurance',
-    'notifications',
-    'livestock_managment',
-    
-
-
-
-   
 ]
-
 
 INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
@@ -86,8 +56,9 @@ TENANT_MODEL = "client.Client" # app.Model
 
 TENANT_DOMAIN_MODEL = "client.Domain"  # app.Model
 
+
 MIDDLEWARE = [
-    # middleware for tenancy
+      # middleware for tenancy
     'django_tenants.middleware.main.TenantMainMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -100,6 +71,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'clearvfarms.urls'
 PUBLIC_SCHEMA_URLCONF = 'clearvfarms.urls_public'
+
 
 TEMPLATES = [
     {

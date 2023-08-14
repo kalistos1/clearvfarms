@@ -22,13 +22,22 @@ DATABASE_ROUTERS = (
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': 'clearvfarms',
+        'NAME': 'farm',
         'USER': 'postgres',
         'PASSWORD': 'kal15t05',
         'HOST': '127.0.0.1',  # or the IP address of your PostgreSQL server
         'PORT': '5432',       # PostgreSQL's default port is 5432
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 STATICFILES_DIRS = [
     BASE_DIR/ "static", "./static/",
