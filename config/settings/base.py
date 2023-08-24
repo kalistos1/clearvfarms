@@ -36,6 +36,8 @@ SHARED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'guardian',
     'core',
     'pages',
     'django_htmx',
@@ -95,8 +97,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'clearvfarms.wsgi.application'
 
+AUTH_USER_MODEL ='accounts.User'
 
-
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend', # default
+        'guardian.backends.ObjectPermissionBackend',
+    )
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
