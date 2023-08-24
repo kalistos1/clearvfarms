@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'clearvfarms.wsgi.application'
 AUTH_USER_MODEL ='accounts.User'
 
 AUTHENTICATION_BACKENDS = (
-        'django.contrib.auth.backends.ModelBackend', # default
+        'accounts.backends.EmailOrUsernameModelBackend', # costume backend authentication
         'guardian.backends.ObjectPermissionBackend',
     )
 # Password validation
